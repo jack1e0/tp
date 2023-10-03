@@ -258,7 +258,9 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* has a need to manage a significant number of tasks
+* prefer to organise tasks by priority and classifications
+* want to link tasks together to visualise their relationships
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
@@ -347,7 +349,6 @@ Preconditions: There are at least 2 tasks in the task list.
 
     Use case ends.
 
-
 **Use Case: Assign Priority to a Task**
 
 *Preconditions: There is at least one task in the task list.*
@@ -395,6 +396,7 @@ Preconditions: There are at least 2 tasks in the task list.
 * 2a. There are no tasks that match the search term(s).
 
   * 2a1. ProfPlan displays an empty list, and informs the user that the search failed to find matches.
+
   *Use case ends.*
 
 **Use Case: Mark Task as Done/Undone**
@@ -424,7 +426,6 @@ Preconditions: There are at least 2 tasks in the task list.
 
       Use case ends.
 
-
 **Use Case: Delete Task/Delete All Tasks**
 
 **Preconditions:** There are one or more tasks in the task list.
@@ -449,6 +450,67 @@ Preconditions: There are at least 2 tasks in the task list.
 * 3b. User requests to delete a task when there are no tasks in the list.
 
     * 3b1. ProfPlan displays an error message.
+
+      Use case ends.
+
+**Use Case: Filter task**
+
+**MSS**
+
+1. User requests to filter task based on date.
+2. ProfPlan validates the input format for the date.
+3. ProfPlan performs the filter and display tasks that fall before the specified date.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. User provides an invalid date input.
+
+    * 2a1. ProfPlan displays an error message to indicate invalid input.
+
+      Use case ends.
+
+* 3a. User requests to filter tasks when there are no tasks in the list.
+
+    * 3a1. ProfPlan displays an error message to indicate that there are no tasks.
+
+      Use case ends.
+
+* 3b. There are tasks in the list but no tasks before the specified date.
+
+    * 3b1. ProfPlan displays a message to indicate no tasks found.
+
+      Use case ends.
+
+**Use Case: Edit task**
+
+**MSS**
+
+1. User requests to edit a task.
+2. ProfPlan validates the input format for the task number and the specified aspect(s).
+3. ProfPlan assigns new values to the specified aspects of the task.
+4. ProfPlan displays a confirmation message with the original and updated task.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. User specifies a task number that is outside the list indices or provides an invalid input.
+
+    * 2a1. ProfPlan displays an error message to indicate invalid input.
+
+      Use case ends.
+
+* 2b. User requests to edit a task when there are no tasks in the list.
+
+    * 2b1. ProfPlan displays an error message to indicate that there are no tasks.
+
+      Use case ends.
+
+* 3a. ProfPlan encounters an internal error while updating new values.
+
+    * 3a1. ProfPlan displays an error message to indicate edit task failed.
 
       Use case ends.
 

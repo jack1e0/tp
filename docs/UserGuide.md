@@ -126,39 +126,6 @@ Examples:
 * `set 1 4` sets the first task in the list as the parent of the fourth task in the list.
   ![result for `set 1 2`](images/setOneTwoResult.png)
 
-### Editing a task : `edit`
-
-Edit the aspects of selected existing task, as specified by the user.
-
-Format: `edit [index] /[aspect] [newValue] /[aspect] [newValue]…`
-
-* Edits the task at the specified `[index]`. The index refers to the index number shown in the displayed tasks list. The index **must be a positive integer** 1, 2, 3, …​
-* [aspect] **must be a string**, and be one of the following:  `name`, `priority`, `category`, `parent`, or `link`.
-* [newValue] **must be a string**.
-* Existing values will be updated to the input values.
-
-Examples:
-*  `edit 2 /name Updated task /priority 3` Edits the task name and priority of the 2nd task, to be `Updated task` and `3` respectively.
-*  `edit 4 /parent 3 /link www.google.com` Edits the parent and link of the 4th task to be `3` and `www.google.com` respectively.
-    ![result for 'edit 3 /name Attend lecture /priority 3 /category lecture'](images/edit.png)
-
-### Filtering tasks by date: `filter`
-
-Filters the relevant tasks by their due dates. User can input a date, after which tasks that fall before the date is displayed.
-
-Format: `filter /[type] [date]`
-
-* The filter will return all tasks that fall before, and in the specified month or year.
-* [type] **must be a string**, and be one of the following: `month`, or `year`.
-* [date] **must be a positive integer**, of the form `mm`, if [type] is `month`.
-* [date] **must be a positive integer**, of the form `yyyy`, if [type] is `year`.
-
-Examples:
-* `filter /month 09`
-* `filter /year 2023`<br>
-  ![result for 'filter /month 09'](images/filter.png)
-
-
 ### Categorising a task: `categorise`
 
 Puts the task in a category of the task list. If the category specified does not yet exist, it will be created. 
@@ -174,11 +141,7 @@ Examples:
 * `categorise 2 /cat quiz` Categorises the 2nd task into the `category` quiz.
   ![result for 'categorise 2 /cat quiz'](images/catergoriseTwoCatQuizResult.png)
 
-
-
 ### Mark Task as Done/Undone
-
-
 
 The "Mark Task as Done/Undone" feature allows you to easily track the completion status of your tasks. You can mark a task as done when you have completed it, and mark it as undone if you need to revisit or revise the same task.
 
@@ -186,7 +149,6 @@ The "Mark Task as Done/Undone" feature allows you to easily track the completion
 
 - To mark a task as done: `mark [taskNumber]`
 - To mark a task as undone: `unmark [taskNumber]`
-
 
 #### Acceptable Values for Parameters
 
@@ -198,11 +160,7 @@ The "Mark Task as Done/Undone" feature allows you to easily track the completion
 
 ![result for 'mark command'](images/MarkCommand.png)
 
-
-
-
 ### Delete Task/Delete all Tasks
-
 
 The "Delete Tasks" feature allows you to remove specific tasks from your task list when they are no longer relevant. 
 You can also delete all the tasks in the list if needed.
@@ -248,6 +206,37 @@ Examples:
 * `link 1 /link www.example.com` Attaches the link `www.example.com` to the 1st task.
   ![result for 'link 1 /link www.example.com'](images/linkOneLinkWwwDotExampleDotComResult.png)
 
+### Filtering tasks by date: `filter`
+
+Filters the relevant tasks by their due dates. User can input a date, after which tasks that fall before the date is displayed.
+
+Format: `filter /[type] [date]`
+
+* The filter will return all tasks that fall before, and in the specified month or year.
+* [type] **must be a string**, and be one of the following: `month`, or `year`.
+* [date] **must be a positive integer**, of the form `mm`, if [type] is `month`.
+* [date] **must be a positive integer**, of the form `yyyy`, if [type] is `year`.
+
+Examples:
+* `filter /month 09`
+* `filter /year 2023`<br>
+  ![result for 'filter /month 09'](images/FilterCommand.png)
+
+### Editing a task : `edit`
+
+Edit the aspects of selected existing task, as specified by the user.
+
+Format: `edit [index] /[aspect] [newValue] /[aspect] [newValue]…`
+
+* Edits the task at the specified `[index]`. The index refers to the index number shown in the displayed tasks list. The index **must be a positive integer** 1, 2, 3, …​
+* [aspect] **must be a string**, and be one of the following:  `name`, `deadline`, `priority`, `category`, `parent`, or `link`.
+* [newValue] **must be a string**.
+* Existing values will be updated to the input values.
+
+Examples:
+*  `edit 2 /name Updated task /priority 3` Edits the task name and priority of the 2nd task, to be `Updated task` and `3` respectively.
+*  `edit 4 /parent 3 /link www.google.com` Edits the parent and link of the 4th task to be `3` and `www.google.com` respectively.
+    ![result for 'edit 3 /name Attend lecture /priority 3 /category lecture'](images/EditCommand.png)
 
 ### Saving the data
 
